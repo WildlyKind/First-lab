@@ -1,34 +1,27 @@
+import static java.lang.Math.*;
+
 public class Application {
 
     public static void main(String[] args) {
-        long[] w = arrayW();
-        double[] x = arrayX();
+        long[] w = createArrayW();
+        double[] x = createArrayX();
         double[][] b = new double[7][10];
         print(func(w, x, b));
     }
 
     public static double func1(double x){
-        double argtan = Math.atan((x + 2)/8);
-        double numerator = Math.cbrt(argtan) - (1.0/3.0);
-        double tan = Math.tan(x);
-        double denominator = Math.exp(tan);
+        double numerator = cbrt(atan((x + 2)/8)) - (1.0/3.0);
+        double denominator = exp(tan(x));
         return numerator / denominator;
     }
 
     public static double func2(double x){
-        double num = Math.pow(2*x, x);
-        double tan = Math.tan(num);
-        return Math.pow((1.0/3.0) / tan, 2);
+        return pow((1.0/3.0) / tan(pow(2*x, x)), 2);
     }
 
     public static double func3(double x) {
-        double sin = Math.sin(x);
-        double cos = 4 * Math.cos(x);
-        double tan = Math.tan(Math.pow(sin, cos));
-        double abs = Math.abs(tan);
-        double denominator = Math.exp(abs);
-        return Math.atan(1.0 / denominator);
-
+        double tan = tan(pow(sin(x), 4 * cos(x)));
+        return atan(1.0 / exp(abs(tan)));
     }
 
     public static double[][] func(long[] arrW, double[] arrX, double[][] arrB){
@@ -47,7 +40,7 @@ public class Application {
     }
 
 
-    public static long[] arrayW() {
+    public static long[] createArrayW() {
         long[] values = new long[7];
         int index = 0;
         for (int number = 4; number < 17; number++) {
@@ -59,10 +52,10 @@ public class Application {
         return values;
     }
 
-    public static double[] arrayX() {
+    public static double[] createArrayX() {
         double[] values = new double[10];
         for (int i = 0; i < values.length; i++) {
-            values[i] = Math.random() * 8 - 2;
+            values[i] = random() * 8 - 2;
         }
         return values;
     }
