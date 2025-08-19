@@ -10,9 +10,7 @@ public class Application {
     }
 
     public static double func1(double x){
-        double numerator = cbrt(atan((x + 2)/8)) - (1.0/3.0);
-        double denominator = exp(tan(x));
-        return numerator / denominator;
+        return cbrt(atan((x + 2)/8)) - (1.0/3.0) / exp(tan(x));
     }
 
     public static double func2(double x){
