@@ -18,8 +18,7 @@ public class Application {
     }
 
     public static double func3(double x) {
-        double tan = tan(pow(sin(x), 4 * cos(x)));
-        return atan(1.0 / exp(abs(tan)));
+        return atan(1.0 / exp(abs(tan(pow(sin(x), 4 * cos(x))))));
     }
 
     public static double[][] func(long[] arrW, double[] arrX, double[][] arrB){
